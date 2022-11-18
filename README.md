@@ -4,10 +4,15 @@
 
 1. Open your "Terminal" application using "Spotlight Search"
 2. Type `curl -so- https://raw.githubusercontent.com/learn-co-curriculum/flatiron-manual-setup-validator/master/mac-os-phase-0-validation-script.sh | zsh 2> /dev/null`
+####UPDATE VALIDATION SCRIPT
 
 ## Check Your Work
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/CNuoCmve-xc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+Note: the output from the verification script may include some different checks
+for you than are shown in the video. Do not be concerned if that's the case —
+the information in the video still applies.
 
 If all checks pass, you have completed your environment setup and are ready to
 move on!
@@ -19,10 +24,10 @@ the validator.
 
 ## Troubleshooting
 
-### Fixing NVM and RVM Dotfile Issues for MacOS
+### Fixing NVM Dotfile Issues for MacOS
 
-If you are having trouble getting RVM, Ruby, NVM, or Node to work, you may have an issue with
-your `.zshrc` file. To fix, we need to run two commands.
+If you are having trouble getting NVM or Node to work, you may have an issue
+with your `.zshrc` file. To fix, we need to run two commands.
 
 The first command makes a backup of your current `.zshrc` file:
 
@@ -36,53 +41,10 @@ dot file:
 ```console
 $ curl -sSL https://raw.githubusercontent.com/flatiron-school/dotfiles/master/.zshrc > ~/.zshrc
 ```
+####UPDATE LINK
 
 Close and reopen your terminal. With a new `.zshrc` file, we can now test out
 each tool.
-
-### Verify RVM is Installed
-
-To confirm that RVM is working, run:
-
-```console
-$ rvm
-```
-
-If you see a long message ending in
-`"For additional documentation please visit https://rvm.io"`, RVM is installed.
-
-> If the command `rvm` is not recognized, do the following in your terminal:
->
-> 1. Type `brew install gmp` and press `<Enter>`
-> 2. Type `brew install gnupg` and press `<Enter>`
-> 3. Type `curl -sSL https://rvm.io/mpapis.asc | gpg --import -` and press `<Enter>`
-> 4. Type `curl -sSL https://rvm.io/pkuczynski.asc | gpg --import -` and press `<Enter>`
-> 5. Type `\curl -sSL https://get.rvm.io | bash` and press `<Enter>`
-> 6. Close the "Terminal" application
-> 7. Reopen the "Terminal" application
-
-### Verify Ruby is Installed
-
-To confirm Ruby is installed, run:
-
-```console
-$ rvm list
-```
-
-If you see `=* ruby-2.7.4`, Ruby is installed and 2.7.4 set as the default
-version and you are all set for Ruby.
-
-> If you do not see `ruby-2.7.4` at all, install it with the following command:
->
-> ```console
-> $ rvm install ruby-2.7.4
-> ```
->
-> If `ruby-2.7.4` is listed, but is not preceded by `=*`, make it the default version by running:
->
-> ```console
-> $ rvm use 2.7.4 --default
-> ```
 
 ### Verify NVM is installed
 
@@ -117,3 +79,46 @@ this), a version of Node is installed that will work for this course.
 > ```console
 > $ nvm install node
 > ```
+
+### Verify Python is Installed
+
+To verify that Python is installed, we'll check the version:
+
+```console
+$ python --version
+# => 3.8.13
+```
+
+If the command returns `3.8.13`, you have the correct version installed.
+
+### Verify pyenv and pipenv are Installed
+
+Next, to check that pyenv and pipenv are working correctly, we will use
+pyenv to download a new python version, then use pipenv to create a virtual
+environment separate from our system environment. We will know everything is
+working correctly if the new version of Python is installed in the virtual
+environment and the original version is installed on the system.
+
+```console
+# download python version 3.7.15
+$ pyenv install 3.7.15
+
+# create a virtual environment with 3.7.15
+$ pipenv --python 3.7.15
+
+# enter the virtual environment
+$ pipenv shell
+
+# check virtual environment python version
+$ python3 --version
+# => 3.7.15
+
+# exit virtual environment
+$ exit
+
+# check system python version
+$ python --version
+# => 3.8.13
+```
+
+If the results of the commands match what's shown above, you're all set!
