@@ -3,16 +3,19 @@
 ## Action Item
 
 1. Open your "Terminal" application using "Spotlight Search"
-2. Type `curl -so- https://raw.githubusercontent.com/learn-co-curriculum/flatiron-manual-setup-validator/master/mac-os-phase-0-validation-script.sh | zsh 2> /dev/null`
-####UPDATE VALIDATION SCRIPT
+2. Run the following command:
+
+```console
+$ curl -so- https://raw.githubusercontent.com/learn-co-curriculum/flatiron-manual-setup-validator/master/mac-os-phase-0-validation-script-with-py.sh | zsh 2> /dev/null
+```
 
 ## Check Your Work
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/CNuoCmve-xc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-Note: the output from the verification script may include some different checks
-for you than are shown in the video. Do not be concerned if that's the case —
-the information in the video still applies.
+Note: your output from the verification script may include some different checks
+than are shown in the video. Do not be concerned if that's the case — the
+information in the video still applies.
 
 If all checks pass, you have completed your environment setup and are ready to
 move on!
@@ -39,9 +42,8 @@ The second command replaces the contents of your `.zshrc` file with a default
 dot file:
 
 ```console
-$ curl -sSL https://raw.githubusercontent.com/flatiron-school/dotfiles/master/.zshrc > ~/.zshrc
+$ curl -sSL https://raw.githubusercontent.com/flatiron-school/dotfiles/master/minimal-zshrc > ~/.zshrc
 ```
-####UPDATE LINK
 
 Close and reopen your terminal. With a new `.zshrc` file, we can now test out
 each tool.
